@@ -29,7 +29,7 @@ object BFInterpreter {
       case e: Exception =>
         e.printStackTrace()
         println("ソースファイルを読み込めませんでした。")
-        sys.exit(0)
+        sys.exit(1)
     }
     var result: Option[String] = None
     var isSuccess = true
