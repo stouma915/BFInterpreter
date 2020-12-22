@@ -31,19 +31,19 @@ object BFInterpreter {
         println("ソースファイルを読み込めませんでした。")
         sys.exit(1)
     }
-    var result: Option[String] = None
     var isSuccess = true
     val interpreter = new Interpreter
     implicit val memory: Memory = new Memory
-    try result = interpreter.run(lines.mkString(""))
-    catch {
-      case e: UnknownCharacterCodeException =>
-        println(s"エラー: 不明な文字コード(${e.getMessage})です。")
-        isSuccess = false
-      case e: OutOfMemoryError =>
-        println(s"エラー: ${e.getMessage}")
-        isSuccess = false
-    }
+    val result =
+      try interpreter.run(lines.mkString(""))
+      catch {
+        case e: UnknownCharacterCodeException =>
+          println(s"エラー: 不明な文字コード(${e.getMessage})です。")
+          isSuccess = false
+        case e: OutOfMemoryError =>
+          println(s"エラー: ${e.getMessage}")
+          isSuccess = false
+      }
     if (isSuccess) {
       println("実行は正常に終了しました。")
       result match {
