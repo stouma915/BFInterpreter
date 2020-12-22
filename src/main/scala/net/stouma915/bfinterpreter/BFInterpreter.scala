@@ -8,7 +8,7 @@ import net.stouma915.bfinterpreter.memory.Memory
 
 object BFInterpreter {
   def main(args: Array[String]): Unit = {
-    if (args.length == 0) {
+    if (args.isEmpty) {
       println("使用方法: BFInterpreter ソースファイル")
       sys.exit(1)
     }
