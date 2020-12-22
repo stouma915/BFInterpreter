@@ -10,7 +10,7 @@ class ASCIIConverterSpec extends AnyFlatSpec with Diagrams {
   }
 
   it should "Return None if failed" in {
-    assert(ASCIIConverter.convert(1).getOrElse(None) === None)
-    assert(ASCIIConverter.convert(0).getOrElse(None) === None)
+    assert(ASCIIConverter.convert(1) === None)
+    assert(ASCIIConverter.convert(0) === None)
   }
 }
